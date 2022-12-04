@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
-import { createAddAnecdoteAction } from '../reducers/anecdoteReducer';
+import { addAnecdote } from '../reducers/anecdotesSlice';
+import { displayNotification, clearNotification } from '../reducers/notificationSlice';
 
 const NewAnecdote = () => {
   const dispatch = useDispatch();
@@ -8,7 +9,11 @@ const NewAnecdote = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const anecdote = e.target.anecdote.value;
-    dispatch(createAddAnecdoteAction(anecdote));
+    dispatch(addAnecdote(anecdote));
+    dispatch(displayNotification({ type: "success", text: `Successfully added ${anecdote}` }))
+    setTimeout(() => {
+      dispatch(clearNotification());
+    }, 4000);
     e.target.anecdote.value = "";
   }
 
