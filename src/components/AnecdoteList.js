@@ -1,9 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom"
 import { voteAnecdote } from "../reducers/anecdotesSlice";
 import {
   setNotification
 } from "../reducers/notificationSlice";
+import Filter from "./Filter";
 
 const AnecdoteList = () => {
   const filterValue = useSelector((state) => {
@@ -34,9 +36,13 @@ const AnecdoteList = () => {
 
   return (
     <div>
+      <h2>Anecdotes</h2>
+      <Filter />
       {anecdotes.map((anecdote) => (
         <div key={anecdote.id}>
-          <div>{anecdote.content}</div>
+          <div>
+            <Link to={`/anecdotes/${anecdote.id}`}>{anecdote.content}</Link>
+          </div>
           <div>
             has {anecdote.votes}{" "}
             <button onClick={() => vote(anecdote.id)}>vote</button>

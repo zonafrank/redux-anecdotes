@@ -1,10 +1,13 @@
 import { useEffect } from 'react';
+import { Routes, Route, Link } from "react-router-dom";
 import NewAnecdote from './components/NewAnecdote';
 import AnecdoteList from './components/AnecdoteList';
 import Notification from './components/Notification';
-import Filter from './components/Filter';
 import { initializeAnecdotes } from './reducers/anecdotesSlice';
 import { useDispatch } from 'react-redux';
+import About from './components/About';
+import Footer from './components/Footer';
+import Anecdote from './components/Anecdote';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -15,11 +18,21 @@ const App = () => {
 
   return (
     <div>
-      <h2>Anecdotes</h2>
+      <h1>Software Anecdotes</h1>
       <Notification />
-      <Filter />
-      <AnecdoteList />
-      <NewAnecdote />
+      <div>
+        <Link to="/anecdotes">Anecdotes</Link>
+        <Link to="/create">Create New</Link>
+        <Link to="/about">About</Link>
+      </div>
+      <Routes>
+        <Route path="/anecdotes" element={<AnecdoteList />} />
+        <Route path="/anecdotes/:id" element={<Anecdote />} />
+        <Route path="/create" element={<NewAnecdote />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/" element={<AnecdoteList />} />
+      </Routes>
+      <Footer />
     </div>
   )
 }

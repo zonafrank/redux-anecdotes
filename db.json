@@ -44,6 +44,25 @@
       "content": "No code has zero defects.",
       "votes": 0,
       "id": "OR-EJAS"
+    },
+    {
+      "content": "Deleted code is debugged code.",
+      "votes": 0,
+      "id": "uxDPaCJ"
+    },
+    {
+      "content": "If debugging is the process of removing software bugs, then programming must be the process of putting them in",
+      "author": "",
+      "url": "https://www.reddit.com/r/ProgrammerHumor/comments/85jsp6/if_debugging_is_the_process_of_removing_software/",
+      "vote": 0,
+      "id": "fWD343D"
+    },
+    {
+      "content": "Java is to JavaScript what car is to Carpet",
+      "author": "",
+      "url": "https://dzone.com/articles/best-programming-jokes-amp-quotes",
+      "vote": 0,
+      "id": "_hZzpWC"
     }
   ]
 }
